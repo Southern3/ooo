@@ -1,0 +1,108 @@
+less
+canvas签名
+日期时间封装
+
+md格式文件: markdown文件
+
+========================== 
+测试代码冲突账户
+
+github账户信息
+用户名: gitbashkang
+邮箱: 3465280796@qq.com
+密码: gitbashkang2008
+
+
+--------------
+qq
+1269872437@qq.com
+q18661866
+
+=========================
+github
+
+账号: win1866
+邮箱: 1269872437@qq.com
+密码: q18661866
+
+https://github.com/win1866/win.git
+==========================
+
+ctrl + insert: 复制
+shift + insert: 粘贴
+
+查看文件内容
+cat 文件路径
+
+命令行编辑文件
+vim 文件路径
+
+按下i键, 进入编辑模式, 按下esc退出编辑模式, 输入 :wq 进行保存退出
+
+1、 配置github用户信息
+git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱"
+
+2、查看用户配置信息
+git config user.name
+git config user.email
+
+3、克隆远程仓库代码
+git clone https://github.com/gitbashkang/webpackdemos.git
+
+查看文件状态
+git status
+
+向远程仓库推送代码流程
+
+1、将编辑的，删除的，新增的文件添加到暂存区
+git add .
+
+2、将暂存区的文件提交到本地临时仓库
+git commit -m '你本次提交的注释'
+
+3、验证代码是否有冲突
+git pull
+
+4、将本地临时仓库的文件推送到远程仓库
+git push -u origin 分支名
+
+
+
+撤销操作
+
+1、已修改，未暂存
+如果只是在编辑器里修改了文件，但还没有执行git add .，这时文件还在工作区，并没有进入暂存区，可以用：
+$git checkout .  或者  $ git reset --hard  来进行撤销操作
+
+2、已暂存，未提交
+执行了$ git add .，但还没有执行$ git commit -m "comment"。这时意识到了错误，想要撤销，可以执行：
+$ git reset  
+$ git checkout .
+或者  $ git reset --hard
+git reset只是把修改退回到了git add .之前的状态，也就是说文件本身还处于已修改未暂存状态，如果想退回未修改状态，还需要执行git checkout .
+
+3、已提交，未推送
+既执行了git add .，又执行了git commit，这时代码已经进入了本地仓库
+$ git reset --hard origin/master
+
+4、已推送
+既git add .，又git commit，并且还git push，这时代码已经进入远程仓库
+$ git reset --hard HEAD^
+$ git push -f
+
+
+创建新分支后，需要执行 git pull 拉取分支
+
+切换分支
+git checkout 分支名
+
+合并分支
+git merge 被合并的分支  比如: git merge dev
+
+删除分支
+git push origin :需要删除的分支名
+
+生成SSH key: 密钥 ==> 私钥  公钥: 需要在github配置
+ssh-keygen -t rsa -C "你的github注册邮箱"
+然后一直回车
